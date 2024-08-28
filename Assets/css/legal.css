@@ -1,0 +1,29 @@
+.mentions_legales {
+    
+    padding: 5rem 0 5rem 2rem;
+    
+    
+    a{
+    display: inline-block ;
+    width:fit-content;
+    color:var(--deepBlue);
+    text-decoration:underline;
+    &:hover{color:var(--darkBlue)}
+    
+}
+
+ h2{font-size:1.5rem;margin-bottom:1.5rem;}
+    
+    ul {
+        list-style: none;
+    
+       li{margin-bottom: 1rem;line-height:1}
+        
+        
+    }
+    
+    
+    
+    
+    
+}

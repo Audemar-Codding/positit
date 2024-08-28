@@ -1,0 +1,66 @@
+
+<section class="dashboard_report">
+    
+    <h2>Reports</h2>
+    
+<table class="dashboard_report_table">
+
+  <thead>
+      <tr>
+          <th>ID</th>
+          <th colspan="2">Username</th>
+      </tr>
+  </thead>
+  
+  <tbody>
+<?php foreach($positits as $index=>$positit): ?>
+
+<?php if(!$positit->getSafe()): ?>
+
+<tr>
+<td><?php echo $index-1 ?></td>
+<td><?php echo $positit->getAuteurName() ?></td>
+<td><img class="dashboard_report_see" src="Assets/pictures/icons/eye-solid.svg"/></td>
+
+<!--La div template-->
+<td>
+    <div class="positit-template <?php echo htmlspecialchars_decode($positit->getStyleClass()) ?>">
+        <p class="positit-template-text"><?php echo nl2br(htmlspecialchars_decode($positit->getContent())); ?></p> 
+
+        <div class="sticker-div">
+        <?php echo htmlspecialchars_decode($positit->getStickersHtml()); ?>
+        </div>
+    
+    <div class="dashboard_report_positit_options">
+        <a href="index.php?route=dashboard&option=1&posititid=<?php echo $positit->getId() ?>"><i class="fa-solid fa-thumbs-up"></i></a>
+        
+        <div>
+            <a href="index.php?route=dashboard&option=2&posititid=<?php echo $positit->getId() ?>"><i class="fa-solid fa-trash-can"></i></a>
+            <a href="index.php?route=dashboard&option=3&posititid=<?php echo $positit->getId() ?>"><i class="fa-solid fa-heart-crack"></i></a>
+            <a href="index.php?route=dashboard&option=4&posititid=<?php echo $positit->getId() ?>"><i class="fa-solid fa-user-slash"></i></a>
+        </div>
+        
+    </div>
+        
+   </div>
+</td>
+
+
+
+</tr>
+
+<?php endif; ?>
+
+<?php endforeach; ?>
+  </tbody>
+
+</table>
+
+<div class="dashboard_report_modal" id="dashboard_report_modal">
+
+
+</div>
+
+</section>
+
+

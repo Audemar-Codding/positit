@@ -1,0 +1,56 @@
+
+<section class="leaderboard">
+    
+    <h2>leaderboard</h2>
+    
+<table>
+
+  <thead>
+      <tr>
+          <th><img src="Assets/pictures/ranking-star.png" alt="a podium logo"></th>
+          <th></th>
+          <th><img src="Assets/pictures/heart-flat.png" alt="a podium logo"></th>
+      </tr>
+      </thead>
+      <tbody>
+<?php foreach($usersTop as $index=>$user): ?>
+
+<tr>
+
+<td>#<?php echo $index+1 ?></td>
+<td><?php echo $user->getUsername() ?></td>
+<td><?php echo $user->getHeart() ?></td>
+
+</tr>
+
+<?php endforeach; ?>
+
+<tr class="leaderboard_separation" >
+    <td  colspan="3" rowspan="2"><div>
+        <p>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</p>
+            <p>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</p>
+    </div></td>
+</tr>
+
+
+
+
+
+<?php if(isset($_SESSION['connected']) && $_SESSION['connected'] && $currentUserRank > 3) : ?>
+
+<td>#<?php echo $currentUserRank ?></td>
+<td><?php echo $currentUser->getUsername() ?></td>
+<td><?php echo $currentUser->getHeart() ?></td>
+
+<?php endif; ?>
+
+
+
+</tbody>
+</table>
+
+<p>*le positit permanent sera disponible le 1er de chaque mois</p>
+
+</section>
+
+

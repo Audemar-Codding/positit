@@ -1,0 +1,191 @@
+
+
+
+.sendMessage {
+ 
+     h2 {
+    text-align:center;
+    font-size:clamp(2rem, 10vw, 3.25rem);
+    color: var(--darkBlue);
+    margin: 4rem auto;
+    width: 90%;
+    
+    div {
+    display:inline-block;
+        font-size:clamp(2rem, 10vw, 3.25rem);
+        width: fit-content;
+    }
+    
+
+    
+        img {
+    width:40px;
+        display:inline-block;
+            }
+    }
+        
+    form {
+ position:relative;
+       max-width: 90%;
+       margin:0 auto 10rem auto;
+       
+    >div{
+     position:relative;
+     width:clamp(300px, 85vw, 550px); 
+     margin: auto;
+     
+  
+     
+     
+      textarea {
+     width:100%;
+     height: clamp(275px, 20vw, 350px);
+     min-height: 275px;
+     resize: vertical;
+     border: 2px solid var(--darkBlue);
+     background: var(--lightBlue);
+     padding: 0.75rem;
+     margin-bottom:1.5rem;
+         }
+         
+    .messagePinDiv {
+        width:fit-content;
+    position:absolute;
+    top: -25px;
+    right:  min(10px, 2%);
+    }
+         
+      .messageMaxCounter {
+        position: absolute;
+        bottom: 2.5rem;
+        right: 1rem;
+         } 
+         
+      .messageMinCounter {
+        position: absolute;
+        bottom: 3.5rem;
+        right: 1rem;
+        color: rgb(200,150,150);
+         }  
+       }
+       
+       button{
+           height: 85px;
+           &:hover{cursor:pointer;}
+        }
+       
+        >p{
+        margin:auto;
+        margin-top:1rem;
+        width: fit-content;
+        }
+       
+    }
+    
+    
+    .moderation_load {
+        position:absolute;
+        bottom: -3rem;
+        width:100%;
+        display:none;
+        justify-content: center;
+        align-items:center;
+        gap: 1rem;
+        
+        img{
+        width:40px;
+        animation: rotate 1s infinite;
+        }
+        
+        p{ font-size:clamp(1rem, 4vw, 1.5rem);}
+    }
+ 
+    
+}
+
+
+/*============================================================*/
+
+.send-preview {
+    
+    
+      h2 {
+    text-align:center;
+    font-size:clamp(2rem, 5vw, 2.75rem);
+    color: var(--darkBlue);
+    margin: 4rem auto;
+    width: 100%;
+
+    div{display:inline-block; font-size:clamp(2rem, 5vw, 2.75rem);}
+    }
+    
+.positit-template {
+aspect-ratio: 1 / 1;
+min-width: 250px;
+min-height: 250px;
+max-width: 350px;
+max-height: 350px;
+word-break: break-all;
+margin:auto;
+position:relative;
+
+               
+               .sticker-div  {
+             height: 100%;
+             width:100%;
+             position:absolute;
+             top:0;
+             left:0;
+              overflow:hidden;
+
+                .stickers {
+                position:absolute;
+                width: 10%;
+                aspect-ratio: 1 / 1;
+                pointer-events: none;
+                object{width: 100%;}
+                }
+            
+              }
+
+
+width:40vw;
+height: calc(40vw * 1.025);
+
+padding: clamp(1.5rem, 2vw, 2.25rem) clamp(0.5rem, 1vw, 0.75rem) 1rem clamp(0.5rem, 1vw, 0.75rem);
+
+.positit-template-text{
+    height: 90%;
+    overflow: hidden;
+
+    font-family: "Just Another Hand";
+    font-size: clamp(1rem, 5vw, 1.5rem) !important;
+    
+    padding-top: 0.2rem;
+    
+    user-select:none;
+word-break: keep-all !important;
+
+    &::after {
+        content: '...';
+        position: absolute;
+        bottom: -5px;
+        right: 10px;
+        padding: 0 5px;
+        font-size:2.5rem;
+      }
+}
+
+.modal-template-author,a {display:none}
+
+}
+
+
+.positit-yellow {background: url('../pictures/yellow post-it.png') center center / 100% 100% no-repeat;}
+.positit-white {background: url('../pictures/white post-it.png') center center / 100% 100% no-repeat;}
+.positit-blue {background: url('../pictures/blue post-it.png') center center / 100% 100% no-repeat;}
+
+
+}
+}
+

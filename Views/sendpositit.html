@@ -1,0 +1,62 @@
+
+<section class="sendMessage">
+    
+<h2>Envoyer un peu <div>d’<img src="Assets/pictures/heart-flat.png" alt="a red heart"></div> à un inconnu</h2>
+
+<form method="post">
+  
+  <div>    
+  <textarea class="posititMessage" name="posititMessage" pattern="^.{10,500}$" maxlength="500" required placeholder="... n’oubliez pas d’être positif  :)" oninput="updateCharacterCount()"></textarea>
+  <?php if($currentUser && $currentUser->getCanpin()) :?>
+  <div class="messagePinDiv">
+  <label for="messagePin">pin ce message <i class="fa-solid fa-thumbtack"></i></label>  
+  <input type="checkbox" name="messagePin" id="messagePin" value="true"/>
+  </div>
+  <?php endif;?>
+  <p class="messageMinCounter">10</p>
+  <p class="messageMaxCounter">500</p>
+  </div>
+
+
+  <button type="submit" class="moreButton" id="sendPositit_btn"/> <p>ENVOYER LE</p><img src="Assets/pictures/posititlogo 1.svg" alt="a post-it note with a smiling face"> </button>
+    
+    <div class="moderation_load" id="moderation_load">
+      <img src="Assets/pictures/spinner-solid.svg" alt="a loading spinner">
+      <p>Analyse du message en cours</p>
+    </div>
+    
+    
+<p><?= $message ?></p>
+</form>
+
+
+
+</section>
+
+
+
+<?php if(!isset($_SESSION['connected']) || !$_SESSION['connected']) : ?>
+<?php include 'Views/account.html' ?>
+<?php else : ?>
+
+<section class="send-preview">
+  
+  <h2>Vous allez envoyer <div>ce positit :</div></h2>
+  
+    <div class="positit-template <?= $currentUser->getStyleClass(); ?>" id="positit-template">
+        <p class="positit-template-text"></p> 
+        <p class="modal-template-author"><?= $_SESSION['userName']; ?></p>
+
+        <div class="sticker-div" id="sticker-div">
+        <?= $currentUser->getStickersHtml(); ?>
+        </div>
+    </div>
+
+</section>    
+  
+<?php endif; ?>
+
+<div class="donation-btn">
+<a class="moreButton" href="https://www.paypal.com/paypalme/positit" target="_blank"><p>DONNER PLUS DE</p><img src="Assets/pictures/heart-flat.png" alt="a red heart"></a>
+<p>*50% des dons iront à une association</p>
+</div>

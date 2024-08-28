@@ -1,0 +1,59 @@
+<section class="login-form">
+
+<form method="POST">
+    
+    <div>
+    <label for="userName">Nom d'utilisateur</label>
+    <input type="text" name="userName" id="userName" pattern="(?=.*[A-Za-zÀ-ÿ]{3})[A-Za-zÀ-ÿ\d\s@$!%*,:;§*µ^¨+=-`'#~&_]{1,20}" required placeholder=""/>
+        <p class="form-error-msg">le nom d'utilisateur doit contenir au moins 3 lettres consécutives</p>
+    </div>
+    
+        <div>
+    <div> <label for="password">Mots de passe </label> <img id="login_form_passwordreset" src="Assets/pictures/password-reset-8.svg" alt="a icon for reset password"> </div>
+    <input type="text" name="password" id="password" pattern="(?=.*\d)(?=.*[@$!%*,:;§*µ^¨+=-`'#~&_])(?=.*[A-Za-zÀ-ÿ])[A-Za-zÀ-ÿ\d@$!%*?&]{6,}" required placeholder=""/>
+       <p class="form-error-msg">le mots de passe doit faire minimum 8 caractéres et contenir au moins 1 numéro et 1 caractére spécial</p>
+        </div>
+    
+    
+    <input class="moreButton" type="submit" value="Se connecter"/>
+    <?= $message ?>
+    
+    <p>pas de compte ? <a href="index.php?route=register">s'enregistrer</a> </p>
+
+</form>
+
+<div class="login_modal" id="login_modal">
+    
+    <h2>Répondez à la question choisie pour réinitialiser votre mots de passe</h2>
+    
+    <form method="POST">
+        
+    <input type="hidden" name="userName" id="userNameHidden"/>
+        
+    <label for="register_form_question">Le nom de votre...</label>    
+    <select name="question" id="register_form_question">
+        <option value="1">...musique préféré ?</option>
+        <option value="2">...nourriture préféré ?</option>
+        <option value="3">...animal préféré ?</option>
+    </select>
+    
+    <input type="text" name="answer" id="answer" required placeholder=""/>
+
+    <input class="moreButton" type="submit" value="Se connecter"/>
+        
+    </form>
+    
+    
+</div>
+
+
+</section>
+
+<?php if(isset($_SESSION['connected']) && $_SESSION['connected'] === true)  :?>
+<section class="login-redirection">
+    <a href="index.php?route=home">Acceuil</a>
+    <a href="index.php?route=sendpositit">Envoyer un positit</a>
+    <a href="index.php?route=account">Compte</a>
+    <a href="index.php?route=leaderboard">Classement</a>
+</section>
+<?php endif; ?>

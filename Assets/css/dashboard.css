@@ -1,0 +1,218 @@
+.dashboard_report {
+   
+   
+   .dashboard_report_table {.positit-template {display:none;}}
+   
+   height: 100vh;
+   
+    h2 {
+    text-align:center;
+    font-size:clamp(2rem, 5vw, 2.75rem);
+    color: var(--darkBlue);
+    margin: 4rem auto;
+    width: 100%;
+    }
+   
+   
+
+   
+    .dashboard_report_table {
+        display:flex;
+        flex-direction:column;
+        width: 90%;
+        max-width: 500px;
+        min-width: 300px;
+        margin:auto;
+        position: relative;
+        background: #B6EEF4;
+        border: 2px solid var(--deepBlue);
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+
+
+        
+        
+        
+        thead {
+        
+        
+        tr {
+            
+            padding: 0.75rem 1rem;
+            display:flex;
+            justify-content: flex-start;
+            align-items:center;
+            gap: 5rem;
+            border-bottom: solid 3px var(--deepBlue);
+            
+            th {font-size:clamp(1.25rem, 4vw, 1.5rem);}
+            
+        }
+        
+        }
+        
+        
+        tbody {
+            
+            tr {
+            display:flex;
+            justify-content: space-between;
+            align-items:center;
+            border: solid 1px var(--deepBlue);
+            border-collapse: collapse;
+            background-color: var(--lightBlue);
+            padding: 0.5rem;            
+            
+            td:nth-child(1) {width:20%;text-align:left;}
+            td:nth-child(2) {flex: 2 1 auto;overflow:hidden;text-overflow: ellipsis;}
+            td:nth-child(3) { width:8%}
+            
+            
+            td{
+                font-size:clamp(1.25rem, 4vw, 1.5rem);
+                &:nth-child(1){ font-size:clamp(1.5rem, 4vw, 1.75rem);}
+                &:nth-child(3){ font-size:clamp(1.5rem, 4vw, 1.75rem);}
+            }
+            
+            img{width:25px;&:hover{cursor:pointer;}}
+            
+           
+        }
+        
+
+        
+        }
+        
+        
+    
+    }
+    
+    
+
+    
+}
+   
+   
+   
+   
+   
+   .dashboard_report_modal {
+    z-index: 11;
+    display:none;
+    align-items:center;
+    width:100vw;
+    height: 100vh;
+    position:fixed;
+    top:0;
+    left:0;
+    background: rgba(0,0,0,0.6);
+
+    .positit-template {
+    aspect-ratio: 1 / 1;
+    max-width: 250px;
+    max-height: 260px;
+    min-width: 155px;
+    min-height: 160px;
+    word-break: break-all;    
+        
+    transform: scale(2) translateX(-25%);
+    position: relative;
+    left:50% !important;
+    top:-5% !important;
+
+    width:40vw;
+    height: calc(40vw * 1.025);
+
+padding: clamp(1.5rem, 2vw, 2.25rem) clamp(0.5rem, 1vw, 0.75rem) 1rem clamp(0.5rem, 1vw, 0.75rem);
+
+cursor: pointer;
+
+
+
+    .sticker-div 
+    {
+    height: 100%;
+    width:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    opacity: 0.65;
+     overflow:hidden;
+    
+    .stickers {
+    position:absolute;
+    width: 10%;
+    aspect-ratio: 1 / 1;
+    pointer-events: none;
+    object{width: 100%;}
+    }
+            
+    }
+
+.positit-template-text{
+    width: 100%;
+    aspect-ratio: 1 / 0.9;
+    overflow: hidden;
+position:relative;
+    z-index:50;
+    
+        user-select:none;
+
+    font-family: "Just Another Hand";
+    font-size: clamp(1rem, 5vw, 1.5rem) !important;
+
+    overflow:scroll !important;  
+    overflow-x: hidden !important;
+
+
+}
+
+    &::after {
+        content: '...';
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        padding: 0 5px;
+        font-size:1.5rem;
+      }
+
+
+
+.dashboard_report_positit_options {
+    width:100%;
+    
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    
+    position:absolute;
+    top:102%;
+    left:0;
+    
+    i{
+    font-size:1.5rem;
+    color:rgb(100,255,100);
+    }
+    
+    div {
+        display:flex;
+        align-items:center;
+        gap:1rem;
+    
+            a {
+    &:nth-child(1) i{color:yellow}
+    &:nth-child(2) i{color:orange}
+    &:nth-child(3) i{color:red}
+    }
+
+    }
+}
+
+
+    }
+    
+    
+
+    }
+    
+}

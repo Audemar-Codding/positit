@@ -1,0 +1,357 @@
+/*========= BUTTONS =================*/
+
+.moreButton {
+    width:fit-content;
+    margin: auto;
+    display: flex;
+justify-content: center;
+align-items: center;
+gap: 2rem;
+
+padding:1rem 3rem;
+border-radius: 50px;
+background: var(--normalBlue);
+
+&:hover{cursor:pointer;}
+
+text-decoration: none;
+
+img {width:3rem;}
+
+p {font-size:clamp(1rem, 5vw, 2rem);
+display: flex; padding-top: 0.5rem;}
+
+        border-radius: 5rem;
+        filter: drop-shadow(0 7px 0 #64888c);
+            
+        &:hover {
+             filter: drop-shadow(0 3px 0 #64888c);
+             transform: translateY(2px);
+        }
+        
+        &:active {
+             filter: none ;
+             border: 3px solid #64888c;
+             filter: drop-shadow(0 0 6px black);
+             transform: scale(0.9) translateY(2px);
+            }
+          
+}
+
+
+.donation-btn {height:100px;margin-top: 5rem;img{width:clamp(30px, 5vw, 50px)} a{margin-bottom: 1rem;}}
+.sendpositit-btn{height:100px;margin-top: 3rem;img{width:clamp(30px, 5vw, 50px)}}
+
+
+/*================== HOMEBOARD ==================*/
+
+.homeboard {
+
+    width: 100%;
+    min-height: 500px;
+    height: 80vh;
+    background: url('../pictures/homeboardBackground.jpeg') center center / 100% 100% no-repeat;
+    position: relative;
+
+
+
+/*-- PINNNED --*/
+
+aside {
+    width: 70px;
+    height: 75px;
+    
+    position:absolute;
+    top: min(15px, 2%);
+    left: min(15px, 2%);
+    z-index:10;
+    
+    &:hover{cursor:pointer;}
+    
+    img{width: 25px;margin: -15% auto;z-index:1;}
+    
+    .homeboard_pinned_positit {
+        position:absolute;
+        z-index:-1;
+min-width: 0px;
+min-height: 0px;
+width:100%;
+height:100%;
+        top:0;
+        left:0;
+        transform: translateX(0);
+        opacity: 0.8;
+        
+        padding: 1rem 0.5rem;
+        
+        
+        .positit-template-text {
+       font-size: clamp(0.5rem, 5vw, 0.5rem) !important;
+       
+    }
+        
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/*-- END PINNED --*/
+
+
+.positit-template {
+aspect-ratio: 1 / 1;
+max-width: 250px;
+max-height: 260px;
+min-width: 155px;
+min-height: 160px;
+word-break: break-all;
+
+width:40vw;
+height: calc(40vw * 1.025);
+position: absolute;
+transform: translateX(-25%);
+z-index:5;
+
+padding: clamp(1.5rem, 2vw, 2.25rem) clamp(0.5rem, 1vw, 0.75rem) 1rem clamp(0.5rem, 1vw, 0.75rem);
+
+cursor: pointer;
+
+    .sticker-div 
+    {
+    height: 100%;
+    width:100%;
+    position:absolute;
+    top:0;
+    left:0;
+     overflow:hidden;
+    
+    .stickers {
+    position:absolute;
+    width: 10%;
+    aspect-ratio: 1 / 1;
+    pointer-events: none;
+    object{width: 100%;}
+    }
+            
+              }
+
+.positit-template-text{
+    width: 100%;
+    aspect-ratio: 1 / 0.9;
+    overflow: hidden;
+    scrollbar-color: white var(--deepBlue);
+    scrollbar-width: thin;
+
+    font-family: "Just Another Hand";
+    font-size: clamp(1rem, 5vw, 1.5rem) !important;
+    padding-top: 0.2rem;
+    
+    user-select:none;
+    
+  
+word-break: keep-all !important;
+
+}
+
+    &::after {
+        content: '...';
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        padding: 0 5px;
+        font-size:1.5rem;
+      }
+
+.modal-template-author,a {display:none}
+
+}
+
+
+
+
+
+}
+
+.modal-positit {
+    z-index: 11;
+    display:none;
+    align-items:center;
+    width:100vw;
+    height: 100vh;
+    position:fixed;
+    top:0;
+    left:0;
+    background: rgba(0,0,0,0.6);
+
+    .positit-template {
+    transform:scale(2) translateX(-25%);
+    position: relative;
+    left:50% !important;
+    top:-5% !important;
+
+
+ .sticker-div {display:none};
+
+    .positit-template-text { 
+         width: 100%;
+    aspect-ratio: 1 / 0.9;
+        overflow:scroll !important;  
+        overflow-x: hidden !important;
+        word-break: keep-all !important;
+    }
+
+    .positit-template-sticker {display:none;}
+    .modal-template-author,a {display:block;position:absolute;}
+    .modal-template-author {
+        top: 100%;
+        left: 0.5rem;
+        max-width: calc(100% - 40px);
+        color:white;
+user-select:none;
+padding-top: 0.2rem;
+
+        &:hover {cursor:initial !important;}
+    }
+    a {
+        opacity: 0.8;
+        bottom: -1.25rem;
+        right: 0.5rem;
+        width: 20px;
+        img{width: 100%;}
+
+&:hover {filter:drop-shadow(0 0 5px white);opacity:1;}
+
+    }
+    
+    
+    .positit-template-liked {filter:drop-shadow(0 0 5px white);pointer-events: none;opacity:1;}
+
+
+    }
+    
+    
+    .report {
+        position:absolute;
+        bottom: 1rem;
+        width: fit-content;
+        left:50%;
+        transform:  translateX(-50%);
+        
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        gap:1rem;
+        
+        p,i
+        {
+        color:white;
+        font-size: 1.5rem;
+        }
+ 
+        &:hover { p,i {color:red} }
+        
+    
+        
+    }
+}
+
+/*==================== homeboard msg ================*/
+
+.homeboardMessage {
+    padding: 0 1rem;
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    margin: 1.5rem auto;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    
+    p,a{font-size: 1.75rem;}
+    
+    a{color: var(--darkBlue);display:inline-block;
+    &:hover{text-decoration: underline;  cursor:pointer} }
+    
+}
+
+
+
+/*============== STATS ===================*/
+.stats {
+       
+       width: fit-content;
+       margin:10rem  auto;
+        
+    div {
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    width:fit-content;
+    margin: 1rem 0;
+    
+    p{font-size:clamp(1.75rem, 4vw, 3rem); padding-top:0.5rem;}
+    p:nth-child(2) {width:clamp(90px, 10vw, 250px);text-align:center;font-size:clamp(2rem, 4vw, 3.25rem); color: var(--darkBlue);font-weight:700;margin:1rem;}
+    p:last-child{text-align:left;flex-grow: 2;}
+    
+    img{width:clamp(35px, 5vw, 75px);}
+    
+    }
+}
+
+/*============== MAP ==================*/
+.map {
+    position: relative;
+    z-index: 10;
+   
+    
+    
+    
+    h2{
+    text-align:center;
+font-size:clamp(2rem, 10vw, 3.25rem);
+    color: var(--darkBlue);
+    margin: 1.5rem auto;
+}
+    
+    >div{
+    height: 550px;
+     width:100%;
+    margin:auto;
+    max-width: 900px;
+    }
+    
+
+    a {display: inline-block}
+}
+
+/*=============== DONATION BTN =================*/
+.donation-btn {
+    
+
+    
+    .moreButton {
+    height: 75px;
+    
+    &:active {
+    margin-bottom: 1rem !important;
+    }
+
+}
+
+    p {
+        width: fit-content;
+    margin:auto;}
+}
+
+
+
+
+#mycities {display:none;}

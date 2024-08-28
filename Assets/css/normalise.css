@@ -1,0 +1,44 @@
+:root {
+    --lightBlue: #E3FDFD;
+    --normalBlue: #A6E3E9;
+    --darkBlue: #069AA3;
+    --lineBlue: #71C9CE;
+    --deepBlue: #1C3343;
+}
+
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+
+body, textarea {
+    font-family: "Gluten", sans-serif;
+    color:var(--primary);
+    background:white;
+}
+
+h1,h2,h3,h4,h5 {font-weight:normal;}
+
+a, img {display:block;}
+a { text-decoration: none; color:var(--primary);}
+
+html { scroll-behavior: smooth; }
+
+/*==== GLOBAL ====*/
+
+.positit-yellow {background: url('../pictures/yellow post-it.png') center center / 100% 100% no-repeat;}
+.positit-white {background: url('../pictures/white post-it.png') center center / 100% 100% no-repeat;}
+.positit-blue {background: url('../pictures/blue post-it.png') center center / 100% 100% no-repeat;}
+
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

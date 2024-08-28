@@ -1,0 +1,172 @@
+
+
+
+<?php if(!isset($_SESSION['connected']) || !$_SESSION['connected']) : ?>
+
+<section class="accountDisconnected">
+    <h2>Vous êtes anonyme, <div>vous ratez :</div></h2>
+    <div class="account-explain"> <i class="fa-solid fa-palette"></i> <p>la personalisation de vos positits</p></div>
+    
+    <div class="custom">
+        <img src="Assets/pictures/custom/customPositit1.png"></img>
+        <img src="Assets/pictures/custom/customPositit2.png"></img>
+        <img src="Assets/pictures/custom/customPositit3.png"></img>
+    </div>
+    
+     
+    <div class="account-explain"> <i class="fa-solid fa-ranking-star"></i> <p>l’accés au leaderboard</p></div>
+    <p class="account-explain-leaderbord">l’utilisateur avec le plus de like à la fin du mois pourra écrire un message permanent sur le tableau de tout le monde pendant 1 mois</p>
+    
+    <p class="convinced">convaincu ? <a href="index.php?route=register">s’enregister</a></p>
+     <a class="connected_link" href="index.php?route=login">SE CONNECTER</a>   
+</section>
+
+
+
+<?php else: ?>
+
+<section class="account-infos">
+
+<?php if($usermessages): ?>
+<i class="account_messageicon fa-solid fa-envelope"></i>
+
+<div class="acount_messages_modal">
+    
+    <h2>Vous avez recu <?php echo count($usermessages) ?> message<?php if(count($usermessages) > 1){echo 's';} ?></h2>
+    
+    <ul>
+    <?php 
+    foreach($usermessages as $usermessage){
+    echo "<li><a href='index.php?route=manageMessage&messageid=".$usermessage->getId()."'  target='_blank'>".$usermessage->getContent()."</a></li>";
+    }
+    ?>
+    </ul>
+    
+</div>
+
+<?php endif; ?>
+
+    <h2>Informations</h2>
+
+    <div class="account-stats">
+    
+        <div>
+            <img src="Assets/pictures/heart-flat.png" alt="a red heart">
+            <p id="account-like"><?php echo  $currentUser->getHeart()?></p>
+            <p class="stats_moreinfo">10 = 1 icon</p>
+        </div>
+    
+        <div>
+            <img src="Assets/pictures/posititlogo.png" alt="a post it logo smiling">
+            <p id="account-positit"><?php echo $currentUser->getPosititCreated()?></p>
+        </div>
+    
+        <div>
+            <img src="Assets/pictures/ranking-star.png" alt="a red hearth">
+            <p id="account-leaderboard-position"><?= $currentUserRank ?></p>
+        </div>
+
+    </div>
+
+ <form method="post">
+ 
+    <div>
+    <label for="userName">Nom d'utilisateur</label>
+    <input type="text" name="userName" id="userName" pattern=".*[A-Za-zÀ-ÿ]{3}.*" required placeholder="" value="<?= $currentUser->getUsername() ?>"/>
+    <p class="form-error-msg">le nom d'utilisateur doit contenir au moins 3 lettres consécutives</p>
+    </div>
+    
+    <div>
+    <label for="password">Mot de passe</label>
+    <input type="text" id="password" disabled  value="- - - - - - - - -" />
+    <a href="index.php?route=changePassword"><i class="fa-solid fa-pen-to-square"></i></a>
+    </div>
+    
+    <div>
+    <label for="city">Ville</label>
+    <input type="text" name="city" id="city" required placeholder=""  value="<?= $currentUser->getCity() ?>"/>
+    <input type="hidden" name="coordinate" id="coordinate" value="<?= $currentUser->getCoordinate() ?>"/>
+    </div>
+    
+    <input class="moreButton" type="submit" value="MODIFIER"/>
+    <?= $message ?>
+    
+        <a class="connected_link" href="index.php?route=disconnect">SE DECONNECTER</a> 
+ </form>
+  
+</section>
+
+
+<section class="account-custom">
+
+<h2>Personnalisation</h2>
+
+<div>
+    
+<div class="custom-styles">
+<i id="custom-btn-icon" class="fa-solid fa-icons"></i>
+<section class="custom-modal" id="custom-modal">
+    <div class="custom-modal-icons" id="custom-modal-icons">
+
+<?php $iconIndex = 0; ?>
+<?php foreach ($icons as $icon): ?>
+    <input name="custom-icon" class="custom-icon" id="custom-icon-<?= $iconIndex ?>" type="radio" value="<?= $icon->getPicture() ?>">
+    <label for="custom-icon-<?= $iconIndex ?>" data="<?= $icon->getPicture() ?>">
+        <div></div>
+        <object type="image/svg+xml" data="Assets/pictures/icons/<?= $icon->getPicture() ?>"></object>
+    </label>
+    <?php $iconIndex++; ?>
+<?php endforeach; ?>
+        
+<input type="color" id="custom-icon-color-selector" class="custom-icon-color-selector" />
+
+    </div>
+</section>    
+
+
+
+<div class="custom-colors" id="custom-colors">
+    <button class="custom-colors-btn"  id="custom-colors-white"  onclick="CustomChangeColor(0)"></button>
+    <button class="custom-colors-btn"  id="custom-colors-yellow"  onclick="CustomChangeColor(1)"></button>
+    <button class="custom-colors-btn"  id="custom-colors-blue"  onclick="CustomChangeColor(2)"></button>
+</div>
+
+<div class="maxstickercounter"><p>Icons</p><p id="maxsticker_counter"><?=$stickersMax?></p></div>
+
+</div>
+
+<form method="post" id="custom-positit">
+
+<div class="custom-template <?= $currentUser->getStyleClass(); ?>" id="positit-template">
+      <div class="sticker-div" id="sticker-div">
+        <?= $currentUser->getStickersHtml(); ?>
+      </div>
+</div>
+
+    <input type="hidden" id="hiddenInputSticker" name="hiddenInputSticker">
+    <input type="hidden" id="hiddenInputStyle" name="hiddenInputStyle" value="<?= $currentUser->getStyleClass(); ?>">
+
+
+    <button class="moreButton" type="submit">ENREGISTRER</button>
+    <p><?= $message2 ?></p>
+
+</form>        
+     
+<div class="custom-options" >
+    <i id="custom-btn-cancel" class="fa-solid fa-delete-left"></i>
+    <i id="custom-btn-rotate" class="fa-solid fa-arrow-rotate-left"></i>
+    <i id="custom-btn-plus" class="fa-solid fa-plus"></i>
+    <i id="custom-btn-minus" class="fa-solid fa-minus"></i>
+</div>        
+    
+</div>     
+        
+</section>
+
+
+
+<?php endif; ?>
+    
+<?php include 'Views/leaderboard.html' ?>
+
+ 

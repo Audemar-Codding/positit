@@ -1,0 +1,126 @@
+header{
+    
+    width:100%;
+    height: 120px;
+    
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    
+        
+    border-bottom: 2px solid var(--deepBlue);
+    
+    padding: 0 2rem;
+    
+    background: var(--normalBlue);
+    color:black;
+    
+    
+    
+    #burgerMenu{display:none;}
+    label i {
+        font-size:3.5rem;
+        &:hover{cursor:pointer;}
+    }
+    
+
+    
+    .divLogoHeader{
+        
+        width:100%;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        
+        p{padding-left:2rem;font-size:3rem;}
+            a>img{width:60px;}
+    }
+    
+    
+    
+    #burgerMenu:checked ~ nav {display:flex}
+    
+    nav{
+        display:none;
+        flex-direction:column;
+        align-items:center;
+        
+        background: #1E1C1C;
+        
+        width:100%;
+        height:412px;
+        
+        
+        position:absolute;
+        top:109px;
+        left:0;
+        z-index: 9;
+        
+        a{
+            text-decoration: none;
+            color:white;
+            font-size:2.5rem;
+            width:100%;
+            padding: 2rem 0;
+            text-align:center;
+            
+            &:hover{
+                text-decoration:underline;
+                text-decoration-color: var(--lightBlue);
+    }
+        }
+        
+    }
+    
+    
+}
+
+@media screen and (min-width: 1200px) {
+    
+    header
+    {
+
+    
+    label{display:none;}
+    
+        
+        nav{
+        display:flex;
+        flex-direction:row;
+        background: none;
+        gap:1.5rem;
+        top:auto ;
+        left:auto;
+        
+        width:fit-content!important;
+        height:fit-content!important;
+        
+        
+        position:relative;
+
+        a{
+            text-decoration: none;
+            color:black;
+            font-size:2rem;
+            width:fit-content !important;
+            padding: none;
+
+            &:hover{
+                text-decoration-color: var(--deepBlue);
+    }
+        }
+        
+
+    
+    
+    }
+    
+    
+        .divLogoHeader{width:fit-content;gap:2rem;p{padding-left:0;}}
+    
+    }
+    
+    
+    
+    
+}
