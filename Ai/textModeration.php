@@ -18,7 +18,7 @@ $response = $this->client->request('POST', 'https://api.edenai.run/v2/text/moder
   'body' => '{"response_as_dict":true,"attributes_as_list":false,"show_base_64":true,"show_original_response":false,"providers":"openai","language":"'.$lang.'","text":"'.$text.' test"}',
   'headers' => [
     'accept' => 'application/json',
-    'authorization' => 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZDBhOTk2YzUtMTNhMy00M2EzLTliNDMtMDRkYzc4Y2JkOTZlIiwidHlwZSI6ImFwaV90b2tlbiJ9.vlviSKNAjMxqphstROhWUOdg-p2h3HlXVhOBu2i_PN0',
+    'authorization' => 'Bearer my secret api key',
     'content-type' => 'application/json',
   ],
 ]);
