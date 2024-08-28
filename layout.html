@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posit'it</title>
+    <link rel="icon" type="image/x-icon" href="Assets/pictures/posititlogo 1.svg">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
+
+
+    <link rel="stylesheet" href="Assets/css/normalise.css">
+    <link rel="stylesheet" href="Assets/css/header.css">
+    <link rel="stylesheet" href="Assets/css/footer.css">
+    <link rel="stylesheet" href="Assets/css/login-register-form.css">
+    <link rel="stylesheet" href="Assets/css/sendPositit.css">
+    <link rel="stylesheet" href="Assets/css/account.css">
+    <link rel="stylesheet" href="Assets/css/home.css">
+    <link rel="stylesheet" href="Assets/css/changePassword.css">
+    <link rel="stylesheet" href="Assets/css/leaderboard.css">
+    <link rel="stylesheet" href="Assets/css/dashboard.css">
+    <link rel="stylesheet" href="Assets/css/legal.css">
+
+<!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gluten:wght@100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Just+Another+Hand&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<header> 
+    <label for="burgerMenu"><i class="fa-solid fa-bars"></i></label>
+    <input type="checkbox" id="burgerMenu"/>
+        
+    <div class="divLogoHeader">
+        <p>Posit'it</p>
+        <a href="index.php?route=home"><img src="Assets/pictures/posititlogo 1.svg" alt="a post-it note with a smiling face"></a>
+    </div>
+        
+        <nav>
+            <a href="index.php?route=home">ACCUEIL</a>
+            <a href="index.php?route=sendpositit">POSIT'IT</a>
+            <a href="index.php?route=account">COMPTE</a>
+            <?php if(isset($_SESSION['admin']) && $_SESSION['admin']) : ?>
+            <a href="index.php?route=dashboard">Dashboard</a>
+            <?php endif; ?>
+            <a href="#contact">CONTACT</a>
+        </nav>
+         
+</header>
+
+
+
+
+<main> <?php include $template ?> </main>
+
+
+<footer id="contact">
+
+<section class="contact">
+    <h3>Contact</h3>
+    <div><i class="fa-solid fa-envelope"></i><a href="mailto:contact.positit@gmail.com">contact.positit@gmail.com</a></div>
+</section>
+
+<div class="separation"></div>
+
+<p>merci pour votre visite &lt;3 </p>
+
+<section class="legal">
+<p>2024 © posit'it - tout droits réservés </p>
+<a href="index.php?route=legal">mentions légales</a>
+</section> 
+</footer>
+
+<!-- depencies -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="scripts/leaf.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+
+<!-- les js -->
+<script src="scripts/recupStickerColor.js"></script>
+
+<script src="scripts/homeboard.js"></script>
+<script src="scripts/sendMessage.js"></script>
+<script src="scripts/map.js"></script>
+<script src="scripts/account.js"></script>
+<script src="scripts/login.js"></script>
+<script src="scripts/dashboard.js"></script>
+
+
+<!-- font awesome icon -->
+<script src="https://kit.fontawesome.com/117792c172.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
+
